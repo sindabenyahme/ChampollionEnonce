@@ -1,11 +1,11 @@
 package champollion;
 
-class SuperPrevu {
+class ServicePrevu {
     private int volumeCM;
     private int volumeTD;
     private int volumeTP;
 
-    public SuperPrevu() {
+    public ServicePrevu() {
         this.volumeCM = 0;
         this.volumeTD = 0;
         this.volumeTP = 0;
