@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.HashMap;
 public class Enseignant extends Personne {
     private Set<TypeIntervention> interventions = new HashSet<>();
-    private Map<UE, SuperPrevu> enseignements = new HashMap<>();
+    private Map<UE, ServicePrevu> enseignements = new HashMap<>();
 
     // TODO : rajouter les autres méthodes présentes dans le diagramme UML
 
@@ -41,9 +41,9 @@ public class Enseignant extends Personne {
     public int heuresPrevuesPourUE(UE ue) {
         if (enseignements.containsKey(ue)) {
             SuperPrevu superPrevu = enseignements.get(ue);
-            int heuresCM = superPrevu.getVolumeCM();
-            int heuresTD = superPrevu.getVolumeTD();
-            int heuresTP = superPrevu.getVolumeTP();
+            int heuresCM = ServicePrevu.getVolumeCM();
+            int heuresTD = ServicePrevu.getVolumeTD();
+            int heuresTP = ServicePrevu.getVolumeTP();
 
             int heuresEquivalentTD = (int)(heuresCM * 1.5f + heuresTD + heuresTP * 0.75f);
             return heuresEquivalentTD;
@@ -63,7 +63,7 @@ public class Enseignant extends Personne {
             enseignements.put(ue, new SuperPrevu());
         }
 
-        SuperPrevu superPrevu = enseignements.get(ue);
+        SuperPrevu ServicePrevu = enseignements.get(ue);
         superPrevu.ajouteEnseignement(volumeCM, volumeTD, volumeTP);
     }
 
